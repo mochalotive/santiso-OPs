@@ -1,0 +1,37 @@
+integrator               = md
+dt                       = 0.001
+nsteps                   = 500
+
+nstlog                   = 100
+nstenergy                = 100
+nstxout-compressed       = 100
+
+continuation             = yes
+
+;all of these are recommneded on the gromacs website for using charmm
+constraints = h-bonds
+cutoff-scheme = Verlet
+vdwtype = cutoff
+vdw-modifier = force-switch
+rlist = 1.2
+rvdw = 1.2
+rvdw-switch = 1.0
+coulombtype = PME
+rcoulomb = 1.2
+DispCorr = no
+;all required here
+
+
+tcoupl = v-rescale
+tau-t = 0.1
+ref-t = 295
+tc-grps = Other
+
+
+pcoupl                   = no
+;tau-p                    = 2.0
+;compressibility          = 4.5e-5
+;ref-p                    = 1.0
+
+pbc             = xyz       ; Periodic Boundary Conditions in all 3 dimensions
+

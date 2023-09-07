@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#BSUB -q short
+#BSUB -n 4
+#BSUB -W 0:20
+#BSUB -J gmx_testing
+#BSUB -o o.%J
+#BSUB -e e.%J
+#BSUB -R "span[hosts=1]"
+
+module load PrgEnv-intel
+source /rs1/researchers/e/eesantis/jpmckibb/smcv/env_setup/GROMACS_COMPILED_PATCHED/install_dir/bin/GMXRC
+module load /rs1/researchers/e/eesantis/jpmckibb/modulefiles/plumed/
+
+
+gmx_mpi grompp -f sfd_cry.mdp -c SFD.pdb -p structure.top -o topol.tpr 
+#mpirun -n 8 gmx_mpi mdrun -v -deffnm em -s run.tpr -plumed plumed.dati
+mpirun -n 4 gmx_mpi mdrun -v -deffnm em -s topol.tpr -plumed plumed.dat
+#gmx_mpi mdrun -v -deffnm em -s topol.tpr -plumed plumed.dat
+

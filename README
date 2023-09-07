@@ -1,0 +1,19 @@
+ALL SUBMISSION SCRIPTS, SOURCES, AND FILE PATHS WILL NEED TO BE CHANGED
+
+
+DESCRIPTION OF ALL FILES:
+plumed.dat - a sample plumed calculation of distance order parameters on a system of 252 sulfadiazine molecules solvated in acetonitrile
+per  Santiso, Erik E.; Trout, Bernhardt L. (2011). A general set of order parameters for molecular crystals. , 134(6), 64109–0. doi:10.1063/1.3548889
+
+plumed_simple.dat - a very simple and quick plumed inp for testing
+
+SFD.pdb - 252 sulfadizine solvated in ACN
+
+out.cop - the values of the distance order parameters in the PDB, which plumed will attempt to restrain
+
+GMX_script - submission script, most likely need to be heavily modified to run on your machine (or not necessary)
+
+PLUMED_script - runs a plumed driver for testing
+
+sfd_cry.mdp, structure.top, topol.tpr, out.ndx - standard gromacs input files
+
